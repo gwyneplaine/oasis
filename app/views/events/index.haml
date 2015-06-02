@@ -1,7 +1,7 @@
-/ -@events.each do |event|
-/ 	%div
-/ 		%h2
-/ 			%a
-/ 				=link_to(event.name,event_path(event.id))
-/ 		%h4
-/ 			=event.date
+-@events.each do |event|
+	%div
+		%h2
+			%a
+				=link_to(event.name,event_path(event.id))
+		%h4
+			=event.date
