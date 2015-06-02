@@ -1,0 +1,2 @@
+module LocationsControllerHelper
+end

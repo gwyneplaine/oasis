@@ -1,0 +1,11 @@
+%h2
+	=@event.name
+
+-if @event.image.present?
+	=image_tag(@event.image)
+
+%ul
+	%li
+		=link_to('Edit Event', edit_event_path(@event.id))
+	%li
+		=link_to('Delete Event',@event, :method => 'delete', :data =>{:confirm => 'Are you sure?'})

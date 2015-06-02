@@ -33,7 +33,9 @@ gem 'haml'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'remove_turbolinks'
-
+gem 'geocoder'
+gem 'cloudinary'
+gem 'basscss-rails', '~> 0.0.1'
 group :development do
  gem 'pry-rails'
  gem 'pry-stack_explorer'

@@ -1,0 +1,10 @@
+=form_for @event do |f|
+	=f.label :name
+	=f.text_field :name
+	=f.label :image
+	=f.file_field :image
+	=f.label :date
+	=f.date_field :date
+	=f.label :start_time
+	=f.time_field :start_time
+	=f.submit

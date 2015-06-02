@@ -1,0 +1,10 @@
+%h2 
+	=@category.name
+-if @category.image
+	=image_tag(@category.image)
+%ul
+	%li
+		=link_to('Edit Category', edit_category_path(@category.id))
+	%li
+		=link_to('Delete Event', @category, :method =>'delete', :data => {:confirm => 'Are you sure?'})
+
