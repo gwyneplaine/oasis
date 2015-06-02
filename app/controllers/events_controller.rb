@@ -2,8 +2,9 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
-  
+
   def index
+    @iptest = request.remote_ip
     @events = Event.all
   end
 
