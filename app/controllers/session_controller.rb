@@ -5,8 +5,9 @@ class SessionController < ApplicationController
 		user = User.find_by :name => params[:username]
 		if user.present? && user.authenticate(params[:password])
 			session[:user_id] = user.id 
-			test = request.remote_ip
-			raise params.inspect
+			iptest = request.remote_ip
+			@iptestopj = Geocoder.search(iptest)
+			@iptestaddress = Geocoder.address(iptest)
 			redirect_to root_path
 		else
 			flash[:notice] = "Invalid Login, please try again"
