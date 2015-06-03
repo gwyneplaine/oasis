@@ -1,5 +1,5 @@
 module ApplicationHelper
-		def login
+	def login
 		nav = ''
 		if @current_user.present? && @current_user.is_admin
 			nav+='<li class ="inline-block mr2 ">' + link_to('Show users', users_path) + '</li>'
@@ -13,4 +13,12 @@ module ApplicationHelper
 		end
 		nav
 	end	
+	def timeline_auth
+		timeline_nav = ""
+		if session[:user_id].present?
+			timeline = Timeline.find_by(:user_id => session[:user_id])
+			timeline_nav += link_to("View Timeline", timeline_path(timeline))
+		end
+		timeline_nav
+	end
 end

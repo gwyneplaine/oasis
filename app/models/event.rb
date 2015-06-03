@@ -12,10 +12,12 @@
 #  image       :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  address     :text
 #
 
 class Event < ActiveRecord::Base
 	belongs_to :location
 	has_and_belongs_to_many :categories
 	has_and_belongs_to_many :users
+	has_and_belongs_to_many :timelines
 end

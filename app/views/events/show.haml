@@ -1,6 +1,7 @@
 %h2
 	=@event.name
-
+%p 
+	=@event.address
 -if @event.image.present?
 	=image_tag(@event.image)
 

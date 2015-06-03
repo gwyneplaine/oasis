@@ -14,11 +14,12 @@ class CategoriesController < ApplicationController
 
     #Cloudinary Magic
     imgfile = params[:category][:image]
-    cloudObj = Cloudinary::Uploader.upload(imgfile.path)
-    
-    #Resave category object
-    @category.image = cloudObj['url']
-    @category.save
+    if imgFile
+      cloudObj = Cloudinary::Uploader.upload(imgfile.path) 
+      #Resave category object
+      @category.image = cloudObj['url']
+      @category.save
+    end
 
     redirect_to categories_path
   end

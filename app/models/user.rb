@@ -15,6 +15,7 @@
 
 class User < ActiveRecord::Base
 	belongs_to :location
+	has_one :timeline
 	has_and_belongs_to_many :events
 	has_secure_password
 

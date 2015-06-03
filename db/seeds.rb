@@ -11,6 +11,7 @@ Location.destroy_all
 Event.destroy_all
 Category.destroy_all
 
+
 u1 = User.create :name => 'Charles', :username => 'tetrisburger'
 u2 = User.create :name => 'James', :username => 'jimbo'
 
@@ -21,6 +22,7 @@ e3 = Event.create :name => 'Upstaged 2015'
 l1 = Location.create :name => 'Sydney Harbour Bridge'
 l2 = Location.create :name => 'Shark Hotel'
 l3 = Location.create :name => 'Seymour Centre'
+l4 = Location.create :name => 'Home', :address => Geocoder.address('19 Barana Parade Roseville Chase')
 
 l1.events << e1
 l2.events << e2

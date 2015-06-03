@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
   def create
     @user=User.new user_params
+    
+
     if @user.save
+      new_timeline = Timeline.create :user_id => @user.id, :name => "#{@user.username}'s Timeline"
       redirect_to root_path
     else
       render :new

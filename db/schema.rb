@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601035323) do
+ActiveRecord::Schema.define(version: 20150602235503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,17 @@ ActiveRecord::Schema.define(version: 20150601035323) do
     t.text     "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "address"
   end
 
   create_table "events_locations", force: :cascade do |t|
     t.integer "event_id"
     t.integer "location_id"
+  end
+
+  create_table "events_timelines", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "timeline_id"
   end
 
   create_table "events_users", force: :cascade do |t|
@@ -54,14 +60,18 @@ ActiveRecord::Schema.define(version: 20150601035323) do
 
   create_table "locations", force: :cascade do |t|
     t.text     "name"
-    t.string   "city"
-    t.integer  "postcode"
-    t.string   "country"
-    t.string   "state"
-    t.string   "lat"
-    t.string   "long"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "address"
+    t.float    "lat"
+    t.float    "long"
+  end
+
+  create_table "timelines", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|

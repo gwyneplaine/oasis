@@ -4,14 +4,11 @@
 #
 #  id         :integer          not null, primary key
 #  name       :text
-#  city       :string
-#  postcode   :integer
-#  country    :string
-#  state      :string
-#  lat        :string
-#  long       :string
 #  created_at :datetime
 #  updated_at :datetime
+#  address    :text
+#  lat        :float
+#  long       :float
 #
 
 class Location < ActiveRecord::Base
