@@ -16,6 +16,7 @@ module ApplicationHelper
 	def timeline_auth
 		timeline_nav = ""
 		if session[:user_id].present?
+			message = "There is no user at the moment"
 			timeline = Timeline.find_by(:user_id => session[:user_id])
 			timeline_nav += link_to("View Timeline", timeline_path(timeline))
 		end

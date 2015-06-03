@@ -41,6 +41,11 @@ class EventsController < ApplicationController
     @event.users << current_user 
     @event.save
 
+    #Assign this event to the users timeline
+    timeline = current_user.timeline
+    timeline.events << @event
+    timeline.save
+    
     redirect_to events_path
   end
 
