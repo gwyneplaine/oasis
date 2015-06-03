@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate
   private
   def authenticate
-  	session[:user_id] = nil
 	@current_user = User.find session[:user_id] if session[:user_id]
   end    
 end
