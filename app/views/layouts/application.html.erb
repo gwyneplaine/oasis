@@ -2,11 +2,33 @@
 <html>
 <head>
   <title>Oasis</title>
+  <%= include_gon %>
   <link href="http://d2v52k3cl9vedd.cloudfront.net/basscss/6.1.6/basscss.min.css" rel="stylesheet">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= cloudinary_js_config %>
   <%= csrf_meta_tags %>
+  <script>
+  $(document).ready(function(){
+  	function getLocation(){
+  		if (navigator.geolocation){
+  		  navigator.geolocation.getCurrentPosition(showPosition)
+  		}
+  	}
+  	function showPosition(position){
+  		var longlat = "";
+  		longlat += position.coords.latitude+", ";
+  		longlat += position.coords.longitude;
+  		console.log(longlat);
+  		document.cookie="longlat= "+longlat
+  		console.log(document.cookie)
+  	}
+
+  	getLocation();
+
+  })
+  </script>
 </head>
 <body>
 <header class="clearfix">
