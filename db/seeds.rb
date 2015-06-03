@@ -10,6 +10,7 @@ User.destroy_all
 Location.destroy_all
 Event.destroy_all
 Category.destroy_all
+Timeline.destroy_all
 
 
 u1 = User.create :name => 'Charles', :username => 'tetrisburger'
