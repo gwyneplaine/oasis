@@ -13,18 +13,23 @@ Category.destroy_all
 Timeline.destroy_all
 
 
-u1 = User.create :name => 'Charles', :username => 'tetrisburger'
-u2 = User.create :name => 'James', :username => 'jimbo'
+# u1 = User.create :name => 'Charles', :username => 'tetrisburger'
+# u2 = User.create :name => 'James', :username => 'jimbo'
 
 e1 = Event.create :name => 'Sydney Harbour Rave'
 e2 = Event.create :name => 'Death: The new Bounce'
 e3 = Event.create :name => 'Upstaged 2015'
+e4 = Event.create :name => 'Volcano Rave'
+e5 = Event.create :name => 'Dead Cat Lovers Meetup '
 
-l1 = Location.create :name => 'Sydney Harbour Bridge'
-l2 = Location.create :name => 'Shark Hotel'
-l3 = Location.create :name => 'Seymour Centre'
+l1 = Location.create :name => 'Sydney Harbour Bridge', :address => Geocoder.address('20 York St Sydney')
+l2 = Location.create :name => 'Shark Hotel', :address => Geocoder.address('25 York St Sydney')
+l3 = Location.create :name => 'Seymour Centre', :address => Geocoder.address('33 York St Sydney')
 l4 = Location.create :name => 'Home', :address => Geocoder.address('19 Barana Parade Roseville Chase')
+l5 = Location.create :name => 'Home', :address => Geocoder.address('Sydney Opera House')
 
 l1.events << e1
 l2.events << e2
 l3.events << e3
+l4.events << e4
+l5.events << e5

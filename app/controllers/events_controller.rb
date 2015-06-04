@@ -7,12 +7,13 @@ class EventsController < ApplicationController
     end
   end
 
-  def index
+  def index 
     if session[:user_id]
     @user = User.find session[:user_id]
-    end
     @locations = @user.location.nearbys
+    end
     @events=Event.all
+    # render :layout => !request.xhr?
   end
 
   def show
@@ -21,7 +22,6 @@ class EventsController < ApplicationController
 
   def create
     @user_location = @current_user.location
-    raise
     #Define the location of the event
     @location = params[:event][:address]
 

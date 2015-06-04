@@ -1,10 +1,11 @@
-=form_for @user do |f|
+- formClass = "block full-width mb1 field-light"
+=form_for @user, html:{class:"sm-col-6"} do |f|
 	=f.label :name
-	=f.text_field :name, :autofocus => true
+	=f.text_field :name, :autofocus => true, :class => formClass
 	=f.label :username
-	=f.text_field :username
+	=f.text_field :username, :class => formClass
 	=f.label :password
-	=f.password_field :password
+	=f.password_field :password, :class => formClass
 	=f.label :password_confirmation
-	=f.password_field :password_confirmation
-	=f.submit
+	=f.password_field :password_confirmation, :class => formClass
+	=f.submit :class => 'button fit full-width'

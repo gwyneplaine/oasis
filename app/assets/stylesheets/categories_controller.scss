@@ -1,4 +1,46 @@
 // Place all the styles related to the categories_controller controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "basscss/basscss";
+*{
+		box-sizing: border-box;
+}
+.primary_nav{
+	ul{
+		list-style:none;
+		li{
+			display:inline-block;
+			@media screen and (max-width:720px){
+				display:block;
+			}
+		}
+	}	
+}
+
+form{
+	margin:0 auto;
+}
+
+.container{
+	width: 100%;
+	max-width:960px;
+	padding:0 25px;
+	margin:0 auto;
+}
+.all_events{
+	max-width:40%;
+	background: rgba(0,0,0,.8);
+	left:25%;
+	.add-event-item{
+		background: #aaa;
+		cursor: pointer;
+		margin:0 auto;
+		padding: 12px;
+		text-align:center;
+	}
+	.selected{
+		background: #ea5000;
+	}
+}
+.user-login-h{
+	text-align:center;
+}

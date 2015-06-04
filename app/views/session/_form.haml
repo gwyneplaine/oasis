@@ -1,6 +1,7 @@
-=form_tag do 
+- formClass = "block full-width mb1 field-light"
+=form_tag({controller:'session',action:'create'},{class:"sm-col-6"}) do 
 	=label_tag 'username'
-	=text_field_tag 'username'
+	=text_field_tag 'username', nil, class: formClass
 	=label_tag 'password'
-	=password_field_tag 'password'
-	=submit_tag 'login'
+	=password_field_tag 'password', nil, class: formClass
+	=submit_tag 'login', :class => 'button fit full-width'

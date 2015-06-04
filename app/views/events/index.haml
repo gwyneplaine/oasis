@@ -1,13 +1,24 @@
-%h2
-	=@iptest
-%p
-	=Geocoder.address(@iptest)
-	=Geocoder.search(@iptest)
--@locations.each do |location|
-	-location.events.each do |event|
-		%div
+/ %h2
+/ 	=@iptest
+/ %p
+/ 	=Geocoder.address(@iptest)
+/ 	=Geocoder.search(@iptest)
+	
+-if @locations.present?
+	-@locations.each do |location|
+		-location.events.each do |event|
+			%div.event-item
+				%h2 event.name
+					
+				%h4
+					=event.date
+				=link_to("Read More",event_path(event.id), :class=>"button big mt2")
+-else 
+	-@events.each do |event|
+		%div.event-item
 			%h2
-				%a
-					=link_to(event.name,event_path(event.id))
-			%h4
+				=link_to(event.name,event_path(event.id))
+			%h4 
 				=event.date
+
+			=link_to("Read More",event_path(event.id), :class=>"button big mt2")

@@ -1,4 +1,12 @@
-%h2 
-	=@timeline.name
-=link_to("Add Events", edit_timeline_path(@timeline))
+%div
+	%h2 
+		=@timeline.name
+	%ul
+		-@timeline.events.each do |event|	
+			%li
+				=event.name
+.timeline
+
+=link_to('Add Events', nil,:class=>'add_event',:remote => true)	
+/ =link_to("Add Events", edit_timeline_path(@timeline))
 =link_to("Create Event", new_event_path)

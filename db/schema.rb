@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(version: 20150603072057) do
   end
 
   create_table "timelines", force: :cascade do |t|
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
     t.string   "name"
   end
 

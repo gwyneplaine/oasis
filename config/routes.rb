@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root :to => 'events#index'
   resources :timelines
+  post '/timelines/:id' => 'timelines#add_events'
   resources :users, :except => [:edit, :show] do 
     collection do 
       get '/edit' => 'users#edit'

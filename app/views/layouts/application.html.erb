@@ -32,23 +32,28 @@
 </head>
 <body>
 <header class="clearfix">
-<nav class="primary_nav mxn1 left">
-	<%= link_to('Home', root_path, :class => 'button button-transparent') %>
-	<%= link_to('Create Event', new_event_path, 
-	 :class => 'button button-transparent') %>
-	<%= link_to('View Categories', categories_path, :class => 'button button-transparent') %>
-	<%= link_to('Create Category', new_category_path, :class => 'button button-transparent')%>
-	<%= link_to('View Locations', locations_path, :class => 'button button-transparent') %>
-	<%= link_to('Create Location', new_location_path, :class => 'button button-transparent') %>
-</nav>
-<nav class="login right">
-	<ul class="list-reset">
-		<%== login %>
-	</ul>
-</nav>
+  <div class="container">
+    <nav class="login right">
+	   <ul class="list-reset">
+		   <%== login %>
+	   </ul>
+    </nav>
+       <nav class="primary_nav mxn1 left">
+      <ul>
+       <li><%= link_to('Home', root_path, :class => 'button button-transparent') %></li>
+       <li><%= link_to('Create Event', new_event_path, 
+       :class => 'button button-transparent') %></li>
+       <li><%= link_to('View Categories', categories_path, :class => 'button button-transparent') %></li>
+       <li><%= link_to('Create Category', new_category_path, :class => 'button button-transparent')%></li>
+       <li><%= link_to('View Locations', locations_path, :class => 'button button-transparent') %></li>
+       <li><%= link_to('Create Location', new_location_path, :class => 'button button-transparent') %></li>
+     </ul>
+    </nav>
+  </div>
 </header>
-<%== timeline_auth %>
-<%= yield %>
-
+<div class="container clearfix">
+  <%== timeline_auth %>
+  <%= yield %>
+</div>
 </body>
 </html>
