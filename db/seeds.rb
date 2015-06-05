@@ -20,7 +20,7 @@ e1 = Event.create :name => 'Sydney Harbour Rave', :address => '20 York St Sydney
 e2 = Event.create :name => 'Death: The new Bounce', :address => '25 York St Sydney',:image =>'http://placekitten.com/1280/800'
 e3 = Event.create :name => 'Upstaged 2015', :address => '33 York St Sydney',:image =>'http://placekitten.com/1280/800'
 e4 = Event.create :name => 'Volcano Rave', :address => '19 Barana Parade Roseville Chase',:image =>'http://placekitten.com/1280/800'
-e5 = Event.create :name => 'Dead Cat Lovers Meetup ' => 'Sydney Opera House',:image =>'http://placekitten.com/1280/800'
+e5 = Event.create :name => 'Dead Cat Lovers Meetup ', :address => 'Sydney Opera House',:image =>'http://placekitten.com/1280/800'
 
 l1 = Location.create :name => 'Sydney Harbour Bridge', :address => Geocoder.address('20 York St Sydney')
 l2 = Location.create :name => 'Shark Hotel', :address => Geocoder.address('25 York St Sydney')
