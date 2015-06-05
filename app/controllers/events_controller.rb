@@ -9,8 +9,8 @@ class EventsController < ApplicationController
 
   def index 
     if session[:user_id]
-    @user = User.find session[:user_id]
-    @locations = @user.location.nearbys
+      @user = User.find session[:user_id]
+      @locations = @user.location.nearbys;
     end
     @events=Event.all
     # render :layout => !request.xhr?
@@ -39,6 +39,8 @@ class EventsController < ApplicationController
     if imgFile
       cloudObj = Cloudinary::Uploader.upload(imgFile.path) 
       @event.image = cloudObj['url']
+    else
+      @event.image = 'http://fillmurray.com/1280/768'
     end
 
     #Assign a user to the event

@@ -23,7 +23,7 @@ $darkgrey: #2c2c2c;
 }
 .timeline{
 	background: #fff;
-	z-index:-500;
+	z-index:0;
 	*{
 		box-sizing: border-box;
 	}
@@ -37,9 +37,6 @@ $darkgrey: #2c2c2c;
 		background:inherit;
 	}
 
-	.alternate{
-		@extend .event-item;
-	}
 	.category_item{
 		margin:0 auto
 	}

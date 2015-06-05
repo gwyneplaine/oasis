@@ -1,12 +1,13 @@
-=form_for @event do |f|
+- formClass="block full-width mb1 field-light"
+= form_for @event, html:{class:"sm-col-6"} do |f|
 	=f.label :name
-	=f.text_field :name
+	=f.text_field :name,:class=>formClass
 	=f.label :image
-	=f.file_field :image
+	=f.file_field :image,:class=>formClass
 	=f.label :date
-	=f.date_field :date
+	=f.date_field :date,:class=>formClass
 	=f.label :start_time
-	=f.time_field :start_time
+	=f.time_field :start_time,:class=>formClass
 	=f.label :address
-	=f.text_field :address
-	=f.submit
+	=f.text_field :address,:class=>formClass
+	=f.submit :class=>'button fit full-width'

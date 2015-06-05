@@ -11,7 +11,14 @@
 	
 // }
 $(document).ready(function(){
-	console.log("Hello");
+	// console.log("Hello");
+	// $('.geotriang').on('click',function(event){
+	// 	event.preventDefault();
+
+	// 	//GEOLOCATION STUFF GOES HERE
+	// 	var longlat = {};
+	// 	$.get()
+	// })
 	// var eventslist = gon.events ;
 		// eventslist.sort(function(a,b){
 

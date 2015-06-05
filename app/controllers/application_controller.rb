@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   def authenticate
 	@current_user = User.find session[:user_id] if session[:user_id]
   end    
+  def get_user_location location
+    user = User.find session[:user_id]
+    user.location_id = get_location(location)
+  end
 end

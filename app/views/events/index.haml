@@ -4,21 +4,26 @@
 / 	=Geocoder.address(@iptest)
 / 	=Geocoder.search(@iptest)
 	
--if @locations.present?
+-if @locations
+	%h2 "Events near you"
 	-@locations.each do |location|
 		-location.events.each do |event|
-			%div.event-item
-				%h2 event.name
-					
+			%div.event-item.bg-cover{:style => "background-image:url(#{event.image});"}
+				%h2 
+					=event.name
+				%p 
+					=event.image
 				%h4
 					=event.date
 				=link_to("Read More",event_path(event.id), :class=>"button big mt2")
 -else 
 	-@events.each do |event|
-		%div.event-item
-			%h2
-				=link_to(event.name,event_path(event.id))
-			%h4 
+		%div.event-item.bg-cover{:style => "background-image:url(#{event.image});"}
+			%h2 
+				=event.name
+			%p 
+				=event.image
+			%h4
 				=event.date
 
 			=link_to("Read More",event_path(event.id), :class=>"button big mt2")

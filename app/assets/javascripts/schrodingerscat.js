@@ -125,90 +125,96 @@ $(document).ready(function(){
 				console.log(schrodTimeline.tlEvents);
 			});
 		},
+		userInterface:function(){
+
+
+		},
 		initialize: function(array){
 			this.tlEvents=[];
 			this.tlEvents=array;
 			this.generateEvents(array);
+			this.userInterface();
 		}
 	}
 	console.log(gon.events);
 
 	var $selectedEvents=[];
 	var evItm= gon.events;
-	//REMOVE EVENT
-	$('.timeline').on('click','.close', function(event){
-		event.preventDefault();
-		schrodTimeline.removeEvent($(this));
-	});
-
-	//OPEN EVENT ADD INTERFACE
-	$('.add_event').on('click', function(event){
-		event.preventDefault();
-		// $('.all_events').load('/events');
-		if(gon.events){
-			console.log("true");
-			var $list="";
-	
-			var $addevent = '<div id="eventbucket" class="all_events"></div>'
-			$('body').append($addevent);
-
-			//ITERATE THROUGH event items from rails
-			for(var i=0;i<evItm.length;i++){
-				$list+="<div data-id='"+evItm[i].id+"' class='add-event-item'>"+evItm[i].name+"</div>";
-			}
-
-			//Append a list of shit 
-			var $addconf = "<p class='addconf'>ADD ME</p>";
-			$('#eventbucket').append($list);
-			$('#eventbucket').append($addconf);
-
-		}
-	});
-
-	$('body').on('click', ".add-event-item", function(event){
-		console.log("safasfas");
-		$(this).toggleClass("selected");
-	});
-	
-	$('body').on('click',".addconf", function(event){
-		event.preventDefault();
-		var evArray=[];
-		$(this).parent().find('.selected').each(function(){
-			$selectedEvents.push($(this).data('id'));
-		});
-
-		console.log("These are selected events: "+$selectedEvents);
-		for(var i=0;i<$selectedEvents.length;i++){
-			
-			var result = evItm.filter(function( obj ) {
-				console.log(obj.id);
-				return obj.id === $selectedEvents[i];
-			});
-			evArray.push(result);
-			
-		}
-		console.log("This is the list of new events: "+evArray);
-		for(var i = 0; i<evArray.length; i++){
-			console.log(evArray[i][0]);
-		}
-		console.log("This is the result of your query: "+evArray);
-
-		$.post('/timelines/'+ gon.timelineid,{ events: $selectedEvents },function (data) {
-			// SUCCESS HANDLER FOR POST!
-			// var $el = $("<div>").addClass("event-item");
-			// $(".event-item:last-child").after($el);
-			if(data.events){
-				console.log(data.events);
-				var newArray = schrodTimeline.addEvents(data.events);
-			}else{
-				console.log(data.status);
-			}
-
-		});
-		$('#eventbucket').remove();
-	});
-	schrodTimeline.initialize(gon.timelineEvents);
+		schrodTimeline.initialize(gon.timelineEvents);
 	console.log(schrodTimeline.tlEvents);
+				//REMOVE EVENT
+			$('.timeline').on('click','.close', function(event){
+				event.preventDefault();
+				console.log("hello");
+				schrodTimeline.removeEvent($(this));
+			});
+
+			//OPEN EVENT ADD INTERFACE
+			$('.add_event').on('click', function(event){
+				event.preventDefault();
+				// $('.all_events').load('/events');
+				if(gon.events){
+					console.log("true");
+					var $list="";
+			
+					var $addevent = '<div id="eventbucket" class="all_events"></div>'
+					$('body').append($addevent);
+
+						//ITERATE THROUGH event items from rails
+						for(var i=0;i<evItm.length;i++){
+							$list+="<div data-id='"+evItm[i].id+"' class='add-event-item'>"+evItm[i].name+"</div>";
+						}
+
+					//Append a list of shit 
+					var $addconf = "<p class='addconf'>ADD ME</p>";
+					$('#eventbucket').append($list);
+					$('#eventbucket').append($addconf);
+
+				}
+			});
+
+			$('body').on('click', ".add-event-item", function(event){
+				console.log("safasfas");
+				$(this).toggleClass("selected");
+			});
+			
+			$('body').on('click',".addconf", function(event){
+				event.preventDefault();
+				var evArray=[];
+				$(this).parent().find('.selected').each(function(){
+					$selectedEvents.push($(this).data('id'));
+				});
+
+				console.log("These are selected events: "+$selectedEvents);
+				for(var i=0;i<$selectedEvents.length;i++){
+					
+					var result = evItm.filter(function( obj ) {
+						console.log(obj.id);
+						return obj.id === $selectedEvents[i];
+					});
+					evArray.push(result);
+					
+				}
+				console.log("This is the list of new events: "+evArray);
+				for(var i = 0; i<evArray.length; i++){
+					console.log(evArray[i][0]);
+				}
+				console.log("This is the result of your query: "+evArray);
+
+				$.post('/timelines/'+ gon.timelineid,{ events: $selectedEvents },function (data) {
+					// SUCCESS HANDLER FOR POST!
+					// var $el = $("<div>").addClass("event-item");
+					// $(".event-item:last-child").after($el);
+					if(data.events){
+						console.log(data.events);
+						var newArray = schrodTimeline.addEvents(data.events);
+					}else{
+						console.log(data.status);
+					}
+
+				});
+				$('#eventbucket').remove();
+			});
 
 });
 
